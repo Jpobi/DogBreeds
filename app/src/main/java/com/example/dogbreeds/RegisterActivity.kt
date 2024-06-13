@@ -2,7 +2,6 @@ package com.example.dogbreeds
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -11,9 +10,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
 class RegisterActivity : AppCompatActivity() {
-    public lateinit var inputUser: EditText
-    public lateinit var inputPass: EditText
-    public lateinit var btnRegister: Button
+    private lateinit var inputUser: EditText
+    private lateinit var inputPass: EditText
+    private lateinit var btnRegister: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -32,7 +31,7 @@ class RegisterActivity : AppCompatActivity() {
                 val editor= sharedPreferences.edit()
                 editor.putString("username",inputUser.text.toString())
                 editor.putString("password",inputPass.text.toString())
-                editor.commit()
+                editor.commit()//apply()
 
                 startActivity(
                     Intent(this,LoginActivity::class.java)
